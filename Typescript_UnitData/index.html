@@ -1,0 +1,64 @@
+<!-- Assignment Part 1 -->
+<!-- Name:Shu-Wei, Yeh  -->
+<!-- Student ID: 22862541 -->
+<!-- Campus: SCU Melbourne -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Information of Units</title>
+  <script type="text/javascript" src="src/Unit.js"></script>
+</head>
+
+<body onload="loadData()">
+  <h1>Information of Units</h1>
+  <p>Unit database entry
+    <span id="currentIndex">0</span> of <span id="totalRecords">0</span>.
+  </p>
+  <form>
+    Unit Code:<input type="text" id="code" pattern="[A-Z]{3}[0-9]{4}">
+    <!-- <button type="button" onClick="searchUnit()">search</button> -->
+    <br>
+    Unit Name:<input type="text" id="name">
+    <br>
+    Session:
+    <select id="session">
+      <option value="session1">Session 1</option>
+      <option value="session2">Session 2</option>
+      <option value="session3">Session 3</option>
+    </select>
+    <br>
+    Level:
+    <select id="level">
+      <option value="introductory">Introductory</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+    </select>
+    <br>
+    <!-- The enrolment field is an integer (no fractions allowed) and must be zero or higher. -->
+    Enrolments:<input type="number" id="enrolments" min=0 max=100 value=0>
+    <br>
+    <br>
+    Search a unit by the code:
+    <select id="searchList" onchange="unitDetails(this.value); ">
+      <option select="selected"> Select unit code </option>
+    </select>
+    <br>
+    <br>
+    <button type="button" onclick="doAdd();">Add</button>
+    <button type="button" onclick="doEdit();">Edit</button>
+    <button type="button" onclick="doPrev()">Previous</button>
+    <button type="button" onclick="doNext()">Next</button>
+    <button type="button" onClick="doDelete();">Delete</button>
+  </form>
+  <div id="deleteDialog" style="visibility:hidden;">
+    <p>Do you really want to delete?
+      <button onClick="doDeleteYes()">Yes</button>/
+      <button onClick="doDeleteNo()">No</button>
+    </p>
+  </div>
+  <p id="message"></p>
+</body>
+
+</html>

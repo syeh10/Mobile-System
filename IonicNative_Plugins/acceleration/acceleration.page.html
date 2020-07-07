@@ -1,0 +1,33 @@
+<!-- An accelerometer is a motion sensor 
+that detects motion changes (increments) relative to the current device direction, 
+three-dimensional variations in the x, y, and z axes. -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Acceleration Page
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <!-- Welcome to Assignment 2 Part 1 of Syeh10_22862541 -->
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <h3>
+          The accelerometer is a motion sensor that detects the change 
+          (delta) in movement relative to the current device orientation, 
+          in three dimensions along the x, y, and z axis.
+        </h3>
+        <p>
+          X: {{accelerationX}}<br>
+          Y: {{accelerationY}}<br>
+          Z: {{accelerationZ}}<br>
+          {{shakeVibration}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,72 @@
+<!-- Assignment 2 Part 2 -->
+<!-- Name:Shu-Wei, Yeh  -->
+<!-- Student ID: 22862541 -->
+<!-- Campus: SCU Melbourne -->
+<!-- A page for editing existing pets. 
+This page will also allow deleting a pet from the data. -->
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Edit Pet
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-label color="primary">Pet database entry <ion-badge>{{currentIndex}}</ion-badge> of <ion-badge>{{totalRecords}}</ion-badge>.</ion-label>
+          </ion-item>
+          <ion-list>
+            <ion-item>
+              <ion-label for="currentName">Pet Name</ion-label>
+              <ion-input type="text" id="currentName" required [(ngModel)]=currentName name="currentName"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label for="currentSpecies">Pet Species</ion-label>
+              <ion-select #selectSpecies class="form-control" id="currentSpecies" required [(ngModel)]="currentSpecies" name="currentSpecies">
+                <ion-select-option value="Dog">Dog</ion-select-option>
+                <ion-select-option value="Cat">Cat</ion-select-option>
+                <ion-select-option value="Fish">Fish</ion-select-option>
+                <ion-select-option value="Bird">Bird</ion-select-option>
+                <ion-select-option value="Snake">Snake</ion-select-option>
+                <ion-select-option value="Other">Other</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label for="currentAge">Pet Age</ion-label>
+              <ion-input type="number" id="currentAge" required [(ngModel)]=currentAge name="currentAge"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label for="currentSex">Pet Sex</ion-label>
+              <ion-select #selectSex class="form-control" id="currentSex" required [(ngModel)]="currentSex" name="currentSex">
+                <ion-select-option value="Male">Male</ion-select-option>
+                <ion-select-option value="Female">Female</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label for="currentPhone">Phone Number</ion-label>
+              <ion-input type="text" id="currentPhone" required [(ngModel)]=currentPhone name="currentPhone"></ion-input>
+            </ion-item>
+          </ion-list>
+            <ion-button shape="round" (click)="doPrev();">Previous</ion-button>
+            <ion-button shape="round" id="next" (click)="doNext();">Next</ion-button>
+            <ion-button expand="block" (click)="doEdit();">Edit</ion-button>
+            <ion-button expand="block" (click)="showDialog();">Delete</ion-button>
+            <div id="deleteDialog" #dialogBox [hidden]="!dialogVar">
+              <p>Do you really want to delete?
+                <ion-button expand="block" (click)="doDeleteYes()">Yes</ion-button>
+                <ion-button expand="block" (click)="doDeleteNo()">No</ion-button>
+              </p>
+            </div>
+            <p>{{message}}</p>
+        </ion-card-content>
+        <ion-button expand="block" color="secondary" size="small" (click)="presentToast()">Help</ion-button>
+      </ion-card>
+  </ion-content>
+  

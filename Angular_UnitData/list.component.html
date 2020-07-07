@@ -1,0 +1,21 @@
+<!-- Assignment Part 2 -->
+<!-- Name:Shu-Wei, Yeh  -->
+<!-- Student ID: 22862541 -->
+<!-- Campus: SCU Melbourne -->
+<h2>Unit List</h2>
+<table>
+    <tr>
+        <th>Unit Code</th>
+        <th>Name</th>
+        <th>Session</th>
+        <th>Level</th>
+        <th>Enrolments</th>
+    </tr>
+    <tr *ngFor="let unit of units">
+        <td>{{unit.code}}</td>
+        <td>{{unit.name}}</td>
+        <td>{{unit.session}}</td>
+        <td>{{unit.level}}</td>
+        <td>{{unit.enrolments}}</td>
+    </tr>
+</table>

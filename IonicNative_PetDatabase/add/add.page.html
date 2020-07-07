@@ -1,0 +1,61 @@
+<!-- Assignment 2 Part 2 -->
+<!-- Name:Shu-Wei, Yeh  -->
+<!-- Student ID: 22862541 -->
+<!-- Campus: SCU Melbourne -->
+<!-- A page for adding new pets -->
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Add Pet
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-card>
+        <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label for="newName">Pet Name</ion-label>
+                <ion-input type="text" id="newName" required [(ngModel)]=newName name="newName"></ion-input>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label for="specie">Pet Species</ion-label>
+                <ion-select #selectSpecies class="form-control" id="specie" required [(ngModel)]="specie" name="specie">
+                  <ion-select-option value="Dog">Dog</ion-select-option>
+                  <ion-select-option value="Cat">Cat</ion-select-option>
+                  <ion-select-option value="Fish">Fish</ion-select-option>
+                  <ion-select-option value="Bird">Bird</ion-select-option>
+                  <ion-select-option value="Snake">Snake</ion-select-option>
+                  <ion-select-option value="Other">Other</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label for="newAge">Pet Age</ion-label>
+                <ion-input type="number" id="newAge" required [(ngModel)]=newAge name="newAge"></ion-input>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label for="sex">Pet Sex</ion-label>
+                <ion-select #selectSex class="form-control" id="sex" required [(ngModel)]="sex" name="sex">
+                  <ion-select-option value="Male">Male</ion-select-option>
+                  <ion-select-option value="Female">Female</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label for="newPhone">Phone Number</ion-label>
+                <ion-input type="text" id="newPhone" required [(ngModel)]=newPhone name="newPhone"></ion-input>
+              </ion-item>
+            </ion-list>
+
+              <ion-button type="button" expand="block" (click)="add()">Add Pet</ion-button>
+              <ion-button type="reset" expand="block">Reset</ion-button>
+              <p>{{message}}</p>
+        </ion-card-content>
+        <ion-button expand="block" color="secondary" size="small" (click)="presentToast()">Help</ion-button>
+      </ion-card>
+  </ion-content>
+  

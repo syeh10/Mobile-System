@@ -1,0 +1,48 @@
+<!-- Assignment Part 2 -->
+<!-- Name:Shu-Wei, Yeh  -->
+<!-- Student ID: 22862541 -->
+<!-- Campus: SCU Melbourne -->
+<h2>Browse Unit</h2>
+<p>Unit database entry <strong>{{currentIndex}}</strong> of {{totalRecords}}.
+</p>
+<form>
+  <label for="currentCode">Unit Code:</label>
+  <input type="text" id="currentCode" required [(ngModel)]=currentCode name="currentCode" />
+  <br>
+  <label for="currentName">Unit Name:</label>
+  <input type="text" id="currentName" required [(ngModel)]=currentName name="currentName" />
+  <br>
+  <label for="currentSession">Session:</label>
+  <select #selectSesstion class="form-control" id="currentSession" required [(ngModel)]="currentSession" name="currentSession">
+    <option *ngFor="let se of sessions" [value]="se">{{se}}</option>
+  </select>
+  <br>
+  Level:
+  <span *ngFor="let level of levels">
+    <label for="{{level.value}}">{{level.display}}</label>
+    <input type="radio" name="level" id="{{level.value}}" [(ngModel)]="this.currentLevel" value="{{level.value}}" />
+  </span>
+  <br>
+  <label for="currentEnrolments">Enrolments:</label>
+  <input type="number" [(ngModel)]="currentEnrolments" name="currentEnrolments" id="currentEnrolments" min="0" max="100" step="5" />
+  <br>
+  <br>
+  <label for="searchUnit">Search a unit by the code:</label>
+  <select #selectUnit (change)="onChange($event)" id="searchUnit" [(ngModel)]=searchUnit name="searchUnit" >
+    <option select="selected"> Select unit code </option>
+    <option *ngFor="let su of data" [value]="su.code">{{su.code}}</option>
+  </select>
+  <br>
+  <br>
+  <button type="button" (click)="doEdit();">Edit</button>
+  <button type="button" (click)="doPrev()">Previous</button>
+  <button type="button" (click)="doNext()">Next</button>
+  <button type="button" (click)="showDialog();" [hidden]="!dialogDeleteButton">Delete</button>
+</form>
+<div id="deleteDialog" #dialogBox [hidden]="!dialogVar">
+  <p>Do you really want to delete?
+    <button (click)="doDeleteYes()">Yes</button>/
+    <button (click)="doDeleteNo()">No</button>
+  </p>
+</div>
+<p>{{message}}</p>

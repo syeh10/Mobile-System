@@ -1,0 +1,36 @@
+<!-- Assignment 2 Part 2 -->
+<!-- Name:Shu-Wei, Yeh  -->
+<!-- Student ID: 22862541 -->
+<!-- Campus: SCU Melbourne -->
+<!-- A page for listing all pets. -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Pets list
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Pet name</ion-col>
+            <ion-col>Pet species</ion-col>
+            <ion-col>Pet age</ion-col>
+            <ion-col>Pet sex</ion-col>
+            <ion-col>Pet phone number</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let pet of pets">
+              <ion-col>{{pet.name}}</ion-col>
+              <ion-col>{{pet.species}}</ion-col>
+              <ion-col>{{pet.age}}</ion-col>
+              <ion-col>{{pet.sex}}</ion-col>
+              <ion-col>{{pet.phone}}</ion-col>
+            </ion-row>
+        </ion-grid>
+      </ion-card-content>
+      <ion-button expand="block" color="secondary" size="small" (click)="presentToast()">Help</ion-button>
+    </ion-card>
+</ion-content>

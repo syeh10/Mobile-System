@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Sounds Player
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+      <ion-card-content>
+        <ion-slides [options]="sliderConfig">
+          <ion-slide>
+            <audio controls #audio>
+              <source src="../../assets/audio/Boing.mp3" type="audio/mpeg">
+            </audio>
+            Boing
+          </ion-slide>
+          <ion-slide>
+            <audio controls #audio>
+              <source src="../../assets/audio/Slidewhistle.mp3" type="audio/mpeg">
+            </audio>
+            Slidewhistle
+          </ion-slide>
+          <ion-slide>
+            <audio controls #audio>
+              <source src="../../assets/audio/Squeak.mp3" type="audio/mpeg">
+            </audio>
+            Squeak
+          </ion-slide>
+        </ion-slides>
+        <ion-button expand="block" (click)="doPlay()">Play Sound</ion-button>
+        <ion-button expand="block" color="{{isOn? 'light' : 'primary'}}" (click)="toggleFlash()">Flashlight
+          <ion-icon name="flash"></ion-icon>
+        </ion-button>
+        {{message}}
+      </ion-card-content>
+    </ion-card>
+</ion-content>
